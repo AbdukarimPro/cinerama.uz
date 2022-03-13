@@ -1,0 +1,425 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Avenir Next Cyr, sans-serif;
+    color: white;
+    outline: none;
+}
+
+@font-face {
+    font-family: Avenir Next Cyr, sans-serif;
+    src: url('../fonts/AvenirNextCyr-Thin.ttf');
+}
+
+body {
+    background: #16151A;
+}
+
+input {
+    display: none;
+}
+
+.navigation {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(0 0 0 / 30%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #16151A;
+    z-index: 500;
+}
+
+.container {
+    width: 1125px;
+    margin: 0 auto;
+}
+
+.nav_block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 25px;
+}
+
+.logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.non-response a {
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 650;
+    font-size: 14px;
+}
+
+.non-response a:hover {
+    color: yellow;
+}
+
+.search_sign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label_search {
+    padding: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.signBtn {
+    text-decoration: none;
+    padding: 10px 25px;
+    background: yellow;
+    color: black;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+
+}
+
+.signBtn:hover {
+    background: #000;
+    color: yellow;
+    border-color: yellow;
+    transition: 0.3s ease;
+}
+
+.filmAd {
+    margin-top: 70px;
+    width: 100%;
+    height: 480px;
+    background-image: url(https://files.cinerama.uz/images/banners/2022/02/15/9bd0e3a1-8d5e-4ab5-a800-4a2efbf8c44b.png);
+    background-size: cover;
+    background-color: #2b2a30;
+}
+
+.control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control h1 {
+    font-size: 27px;
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+.cardsBox {
+    margin-top: 50px;
+}
+
+.labelsOf {
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    width: 172px;
+}
+
+
+.labelsOf label {
+    width: 30px;
+    height: 30px;
+    color: #000;
+    background: #ffff4d;
+    padding: 7px;
+    margin-left: 7px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.prev {
+    transform: rotate(180deg);
+}
+
+.labelsOf label svg {
+    fill: #000;
+}
+
+.sliderMain {
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.sliderRole {
+    width: 200%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.cardsHome, .cardsHomeNext {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transform: translateX(-100%);
+    transition: 0.3s ease;
+}
+
+
+
+.imgStyle {
+    position: relative;
+    width: 172px;
+    height: 244px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.infoQuality {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    list-style: none;
+}
+
+.infoQuality li {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 5px;
+    margin-top: 5px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    list-style: none;
+}
+
+.infoQuality li:nth-of-type(1) {
+    background: rgb(0, 119, 255);
+}
+
+.infoQuality li:nth-of-type(2) {
+    background: rgb(255, 38, 0);
+}
+
+.imgStyle img {
+    width: 100%;
+    height: 100%;
+}
+
+.filmInfo h3 {
+    font-size: 17px;
+    margin-bottom: 3px;
+
+}
+
+.filmInfo p {
+    font-size: 13px;
+    color: rgb(158, 158, 158);
+}
+
+.effect {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.856);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 700;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.effect img {
+    width: 45px;
+    height: 45px;
+}
+
+.imgStyle:hover>.effect {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease;
+}
+
+#FC:checked~.serialContainer>.sliderMain>.sliderRole>.cardsHome {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FC:checked~.serialContainer>.sliderMain>.sliderRole>.cardsHomeNext {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FC:checked~.serialContainer>.cardsBox>.control>.labelsOf>.prev {
+    background-color: rgb(85, 90, 12);
+}
+
+#SC:checked~.serialContainer>.cardsBox>.control>.labelsOf>.next {
+    background-color: rgb(85, 90, 12);
+}
+
+.NextCard {
+    width: 267px;
+}
+
+.NextCard>.imgStyle {
+    width: 100%;
+    height: 159px;
+    cursor: pointer;
+}
+
+#FCl:checked~.collectionContainer>.sliderMain>.sliderRole>.cardsHome {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FCl:checked~.collectionContainer>.sliderMain>.sliderRole>.cardsHomeNext {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FCl:checked~.collectionContainer>.cardsBox>.control>.labelsOf>.prev {
+    background-color: rgb(85, 90, 12);
+}
+
+#SCl:checked~.collectionContainer>.cardsBox>.control>.labelsOf>.next {
+    background-color: rgb(85, 90, 12);
+}
+
+
+/* Tv online sytle */
+
+.Tvcard {
+    width: 130px;
+}
+
+.Tvcard>.imgStyle {
+    width: 100%;
+    height: 130px;
+    cursor: pointer;
+}
+
+
+#FCtv:checked~.TvContainer>.sliderMain>.sliderRole>.cardsHome {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FCtv:checked~.TvContainer>.sliderMain>.sliderRole>.cardsHomeNext {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FCtv:checked~.TvContainer>.cardsBox>.control>.labelsOf>.prev {
+    background-color: rgb(85, 90, 12);
+}
+
+#SCtv:checked~.TvContainer>.cardsBox>.control>.labelsOf>.next {
+    background-color: rgb(85, 90, 12);
+}
+
+/* Film Style */
+
+#FCf:checked~.FilmContainer>.sliderMain>.sliderRole>.cardsHome {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FCf:checked~.FilmContainer>.sliderMain>.sliderRole>.cardsHomeNext {
+    transform: translateX(0);
+    transition: 0.3s ease;
+}
+
+#FCf:checked~.FilmContainer>.cardsBox>.control>.labelsOf>.prev {
+    background-color: rgb(85, 90, 12);
+}
+
+#SCf:checked~.FilmContainer>.cardsBox>.control>.labelsOf>.next {
+    background-color: rgb(85, 90, 12);
+}
+
+/* footer style */
+
+footer {
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-attachment: fixed;
+    box-shadow: 0 0 25px #000;
+}
+
+.MainFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.littel_footer_storie {
+    display: flex;
+}
+
+.downloand {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    padding: 10px;
+    background-color: #000;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.downloand p {
+    margin-left: 5px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.support {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.support:hover {
+    color: #ffff4d;
+}
+
+.support:hover>svg {
+    fill: #ffff4d;
+}
+
+.call_center {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.call_center:hover {
+    color: #ffff4d;
+}
+
+.call_center:hover>svg {
+    fill: #ffff4d;
+}
